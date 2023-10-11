@@ -1,0 +1,19 @@
+<div class="container">
+  <h1><%= @restaurant.name %></h1>
+  <p>Address: <%= @restaurant.address %></p>
+  <p>Phone number: <%= @restaurant.phone_number %></p>
+  <p>Category: <%= @restaurant.category %></p>
+
+  <h2>Reviews</h2>
+  <ul>
+    <% @restaurant.reviews.each do |review| %>
+      <li><strong>Rating:</strong> <%= review.rating %></li>
+      <p><%= review.content %></p>
+    <% end %>
+  </ul>
+
+  <h2>Add a Review</h2>
+  <%= render 'reviews/form' %>
+
+  <%= link_to "Back to Restaurants", restaurants_path, class: "btn btn-dark mt-2" %>
+</div>
